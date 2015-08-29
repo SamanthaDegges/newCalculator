@@ -30,3 +30,7 @@ button {
 .wide {
     width: 85px;
 }
+
+#display {
+  height: 100px;
+}
