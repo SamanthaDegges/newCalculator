@@ -19,7 +19,9 @@ $(document).ready(function(){
   var $id = $(".num");
 
   $("#1").on('click' || 'keydown', function() {
+
     $display.text('1');
+    currentValue = $display.text();
   });
 
   $("#2").on('click', function() {
@@ -88,12 +90,13 @@ $(document).ready(function(){
   //OPERATOR EVENT HANDLERS
   $("#adds").on('click', function() {
     if (checksForInput()) {
-      currentValue = checksForInput;
-      console.log('input returned: '+currentValue);
+      currentValue = checksForInput();
+      console.log("input returned: "+ currentValue);
       var toAdd = $display.text();
       }
       var sum = adds(toAdd);
-      currentValue = sum;
+      return currentValue = sum;
+      //$display.text(currentValue);
     });
 
   $("#subtracts").on('click', function() {
