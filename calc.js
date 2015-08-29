@@ -21,7 +21,6 @@ $(document).ready(function(){
   $("#1").on('click' || 'keydown', function() {
 
     $display.text('1');
-    currentValue = $display.text();
   });
 
   $("#2").on('click', function() {
@@ -105,7 +104,7 @@ $(document).ready(function(){
       var toSubtract = $display.text();
       }
       var difference = subtracts(toSubtract);
-      currentValue = difference;
+      return currentValue = difference;
     });
 
   $("#divides").on('click', function() {
@@ -114,7 +113,7 @@ $(document).ready(function(){
       var toDivide = $display.text();
       }
       var quotient = divides(toDivide);
-      currentValue = quotient;
+      return currentValue = quotient;
     });
 
   $("#multiplys").on('click', function() {
@@ -123,13 +122,12 @@ $(document).ready(function(){
       var toMultiply = $display.text();
       }
       var product = multiplys(toMultiply);
-      currentValue = product;
+      return currentValue = product;
     });
 
   $("#equals").on('click', function() {
     newValue = currentValue;
     $display.text(newValue);
-    console.log('equals: '+newValue);
     })
   });
 
