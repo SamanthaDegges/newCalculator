@@ -1,7 +1,7 @@
 'use strict';
 $(document).ready(function(){
 
-  var currentValue = '3';
+  var currentValue = '0';
   var newValue = ' ';
   var $display = $("#display");
   $display.text(currentValue);
@@ -9,9 +9,11 @@ $(document).ready(function(){
   console.log('$valueOnScreen is: '+$valueOnScreen);
 
 
-
   $("#clear").on('click', function() {
-    $display.text('0');
+    currentValue = '0';
+    $display.text(currentValue);
+    console.log('currentValue is: '+currentValue);
+    newValue = ' ';
   });
 
   var $id = $(".num");
@@ -58,31 +60,73 @@ $(document).ready(function(){
 
 
   // OPERATIONS
-
+  var checksForInput = function() {
+      console.log("Checking for $display input:"+$display.text());
+      return $display.text();
+  }
   var adds = function(str) {
     var sum = parseInt(str) + parseInt(currentValue);
     console.log('adds ran to get:'+sum);
     return sum;
   }
-
-  //OPERATORS
-  var checksForInput = function() {
-      console.log("Checking for $display input:"+$display.text());
-      return $display.text();
+  var subtracts = function(str) {
+    var difference = parseInt(str) - parseInt(currentValue);
+    console.log('subtracts ran to get:'+difference);
+    return difference;
+  }
+  var multiplys = function(str) {
+    var product = parseInt(str) * parseInt(currentValue);
+    console.log('multiplys ran to get:'+product);
+    return product;
+  }
+  var divides = function(str) {
+    var quotient = parseInt(str) - parseInt(currentValue);
+    console.log('subtracts ran to get:'+difference);
+    return quotient;
   }
 
+  //OPERATOR EVENT HANDLERS
   $("#adds").on('click', function() {
     if (checksForInput()) {
-      //console.log('input returned.');
+      currentValue = checksForInput;
+      console.log('input returned: '+currentValue);
       var toAdd = $display.text();
       }
       var sum = adds(toAdd);
+      currentValue = sum;
     });
 
-    $("#equals").on('click', function() {
+  $("#subtracts").on('click', function() {
+    if (checksForInput()) {
+      //console.log('input returned.');
+      var toSubtract = $display.text();
+      }
+      var difference = subtracts(toSubtract);
+      currentValue = difference;
+    });
 
-      //var sum = adds(toAdd);
-      $display.text(newValue);
+  $("#divides").on('click', function() {
+    if (checksForInput()) {
+      //console.log('input returned.');
+      var toDivide = $display.text();
+      }
+      var quotient = divides(toDivide);
+      currentValue = quotient;
+    });
+
+  $("#multiplys").on('click', function() {
+    if (checksForInput()) {
+      //console.log('input returned.');
+      var toMultiply = $display.text();
+      }
+      var product = multiplys(toMultiply);
+      currentValue = product;
+    });
+
+  $("#equals").on('click', function() {
+    newValue = currentValue;
+    $display.text(newValue);
+    console.log('equals: '+newValue);
     })
   });
 
