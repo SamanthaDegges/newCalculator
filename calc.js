@@ -100,7 +100,7 @@ $(document).ready(function(){
 
   $("#subtracts").on('click', function() {
     if (checksForInput()) {
-      //console.log('input returned.');
+      currentValue = checksForInput()
       var toSubtract = $display.text();
       }
       var difference = subtracts(toSubtract);
@@ -109,6 +109,7 @@ $(document).ready(function(){
 
   $("#divides").on('click', function() {
     if (checksForInput()) {
+      currentValue = checksForInput()
       //console.log('input returned.');
       var toDivide = $display.text();
       }
@@ -118,6 +119,7 @@ $(document).ready(function(){
 
   $("#multiplys").on('click', function() {
     if (checksForInput()) {
+      currentValue = checksForInput()
       //console.log('input returned.');
       var toMultiply = $display.text();
       }
